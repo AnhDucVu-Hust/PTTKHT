@@ -31,8 +31,8 @@ def register(request):
             user = Account.objects.create_user(
                 first_name=first_name, last_name=last_name, email=email, username=username, password=password)
             user.phone_number = phone_number
+            user.is_activate = True
             user.save()
-
             current_site = get_current_site(request=request)
             mail_subject = 'Activate your blog account.'
             message = render_to_string('accounts/active_email.html', {
@@ -41,8 +41,8 @@ def register(request):
                 'uid': urlsafe_base64_encode(force_bytes(user.pk)),
                 'token': default_token_generator.make_token(user)
             })
-            send_email = EmailMessage(mail_subject, message, to=[email])
-            send_email.send()
+            #send_email = EmailMessage(mail_subject, message, to=[email])
+            #send_email.send()
             messages.success(
                 request=request,
                 message="Please confirm your email address to complete the registration"

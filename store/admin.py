@@ -8,9 +8,9 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 class VariationAdmin(admin.ModelAdmin):
-    list_display = ('product', 'variation_category', 'variation_value', 'is_active', 'created_date')
+    list_display = ('product', 'is_active', 'created_date')
     list_editable = ('is_active',)   # Cho phép chỉnh sửa trên list hiển thị
-    list_filter = ('product', 'variation_category', 'variation_value')
+    list_filter = ('product',)
 
 
 admin.site.register(Product, ProductAdmin)

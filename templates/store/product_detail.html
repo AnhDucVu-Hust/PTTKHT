@@ -26,28 +26,9 @@
                             </div>
                             <p>{{ single_product.description }}</p>
                             <hr />
-                            <div class="row">
-                                <div class="item-option-select">
-                                    <h6>Chọn màu</h6>
-                                    <select name="color" class="form-select" required>
-                                        <option value="" disabled selected>Chọn màu</option>
-                                        {% for variation in single_product.variation_set.colors %}
-                                        <option value="{{ variation.variation_value | lower }}">{{ variation.variation_value | capfirst }}</option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
-                            </div>
                             <!-- row.// -->
                             <div class="row">
-                                <div class="item-option-select">
-                                    <h6></h6>
-                                    <select name="size" class="form-select" required>
-                                        <option value="" disabled selected>Choose size</option>
-                                        {% for variation in single_product.variation_set.sizes %}
-                                        <option value="{{ variation.variation_value | lower }}">{{ variation.variation_value | capfirst }}</option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
+    
                             </div>
                             <!-- row.// -->
                             <hr />

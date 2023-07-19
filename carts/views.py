@@ -22,7 +22,7 @@ def add_cart(request, product_id):
                 key = item
                 value = request.POST.get(key)
                 try:
-                    variation = Variation.objects.get(product=product, variation_category__iexact=key, variation_value__iexact=value)
+                    variation = Variation.objects.get(product=product)
                     product_variations.append(variation)
                 except ObjectDoesNotExist:
                     pass
@@ -64,7 +64,7 @@ def add_cart(request, product_id):
                 key = item
                 value = request.POST.get(key)
                 try:
-                    variation = Variation.objects.get(product=product, variation_category__iexact=key, variation_value__iexact=value)
+                    variation = Variation.objects.get(product=product)
                     product_variations.append(variation)
                 except ObjectDoesNotExist:
                     pass
